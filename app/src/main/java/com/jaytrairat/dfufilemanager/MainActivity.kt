@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             val folder = File("${Environment.getExternalStorageDirectory().absolutePath}/Android")
             val files = folder.listFiles()
 
+            val currentPathTextView = findViewById<TextView>(R.id.current_path)
+            currentPathTextView.text = "Current Path : " + folder.absolutePath
+
             for (file in files) {
                 Log.e("FileList", file.name)
             }
@@ -57,3 +60,4 @@ class FileListAdapter(private val files: Array<File>) :
 
     override fun getItemCount() = files.size
 }
+
